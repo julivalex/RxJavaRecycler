@@ -30,8 +30,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupItemClick() {
-        disposable = listAdapter.clickEvent.subscribe {
-            Toast.makeText(this, "Clicked on $it", Toast.LENGTH_LONG).show()
-        }
+        disposable = listAdapter.subject
+            .subscribe {
+                Toast.makeText(this, "Clicked on $it", Toast.LENGTH_LONG).show()
+            }
     }
 }
